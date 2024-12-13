@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Board',
+    title: 'Auth',
 }
 
 export default function BoardLayout({
@@ -9,9 +9,5 @@ export default function BoardLayout({
 }: {
     children: React.ReactNode
 }) {
-    return (
-        <>
-            <div>{children}</div>
-        </>
-    )
+    return <div>{children}</div>
 }

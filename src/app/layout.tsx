@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navigation from '@/components/navigation'
+import { headers } from 'next/headers'
 
 export const metadata: Metadata = {
     title: {
@@ -12,18 +13,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children,
-    params,
 }: Readonly<{
     children: React.ReactNode
-    params: { slug: string }
 }>) {
-    const { slug } = params // 비동기로 처리
-    console.log(.join)
+    const hideNavigation = headers().get('x-hide-navigation') === 'true'
     return (
         <html lang="ko">
             <body className="flex flex-col gap-4 items-center">
-                {/* {!hideNavigation && <Navigation />} */}
-                <Navigation />
+                {!hideNavigation && <Navigation />}
                 {children}
             </body>
         </html>
